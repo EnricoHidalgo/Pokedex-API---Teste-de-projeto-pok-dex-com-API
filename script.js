@@ -60,8 +60,14 @@ buttonPrev.addEventListener('click', () => {
 })
 
 buttonNext.addEventListener('click', () => {
-    searchPokemon += 1;
-    renderPokemon(searchPokemon);
-})
+    if (searchPokemon < 1025) {
+        searchPokemon += 1;
+    } else {
+        searchPokemon = 1; 
+    }
+    renderPokemon(searchPokemon); 
+});
 
-renderPokemon('1');
+
+const randomPokemon = Math.floor(Math.random() * 1000) + 1;
+renderPokemon(randomPokemon);
